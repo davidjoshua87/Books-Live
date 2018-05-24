@@ -1,7 +1,7 @@
-const Ulasan = require('../models/Ulasans');
+const Ulasan = require('../models/ulasans.model');
 
 module.exports = {
-  getAllItems = function (req, res) {
+  getAllItems: function (req, res) {
     Ulasan.find({})
       .populate('author')
       .exec((err, result) => {
@@ -18,7 +18,7 @@ module.exports = {
       })
   },
 
-  getOneItem = function (req, res) {
+  getOneItem: function (req, res) {
     let id = req.params.id
     Ulasan.findById(id)
       .populate('author')
@@ -36,7 +36,7 @@ module.exports = {
       })
   },
 
-  createUlasan = function (req, res) {
+  createUlasan: function (req, res) {
     let content = req.body.content,
       author = req.body.author,
       like = [];
@@ -58,7 +58,7 @@ module.exports = {
     })
   },
 
-  deleteItem = function (req, res) {
+  deleteItem: function (req, res) {
     let id = req.params.id;
     Ulasan.findByIdAndRemove(id, (err, result) => {
       if(err) {
@@ -73,7 +73,7 @@ module.exports = {
     })
   },
 
-  addLikes = function (req, res) {
+  addLikes: function (req, res) {
     let id = req.params.id,
       like = req.body.like;
     Ulasan.findByIdAndUpdate(id, {
@@ -97,7 +97,7 @@ module.exports = {
     })
   },
 
-  removeLikes = function (req, res) {
+  removeLikes: function (req, res) {
     let id = req.params.id,
       like = req.body.like;
     Ulasan.findByIdAndUpdate(id, {

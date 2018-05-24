@@ -7,6 +7,7 @@ const booksSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  imageUrl: String,
   ulasans: [{
     type: Schema.Types.ObjectId,
     ref: 'Ulasans'

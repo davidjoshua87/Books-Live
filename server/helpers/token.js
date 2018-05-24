@@ -39,7 +39,7 @@ module.exports = {
       })
     }
   },
-  UserloginForAnswer: function (req, res, next) {
+  UserloginForUlasan: function (req, res, next) {
     let token = req.headers.token;
     let id = req.params.answerId
     if(token) {

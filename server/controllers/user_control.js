@@ -1,15 +1,14 @@
 require('dotenv').config();
-const User = require('../models/users');
+const User = require('../models/user.model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-  signup = function (req, res) {
-    let fullname = req.body.fullname,
-      email = req.body.email,
+  signup: function (req, res) {
+    let name = req.body.name,
       username = req.body.username,
-      password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
-      address = req.body.address;
+      email = req.body.email,
+      password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
     User.findOne({
       username: username
     }, (err, data) => {
@@ -26,11 +25,10 @@ module.exports = {
           })
         } else {
           User.create({
-            fullname: fullname,
+            name: name,
             email: email,
             username: username,
-            password: password,
-            address: address
+            password: password
           }, (err, result) => {
             if(err) {
               res.status(400)
@@ -50,7 +48,7 @@ module.exports = {
     })
   },
 
-  signin = function (req, res) {
+  signin: function (req, res) {
     let username = req.body.username,
       password = req.body.password;
     User.findOne({
@@ -95,7 +93,7 @@ module.exports = {
     })
   },
 
-  getAllData = function (req, res) {
+  getAllData: function (req, res) {
     User.find({}, (err, result) => {
       if(err) {
         res.status(400)
@@ -113,7 +111,7 @@ module.exports = {
     })
   },
 
-  getOneData = function (req, res) {
+  getOneData: function (req, res) {
     let id = req.params.id
     User.findById(id, (err, result) => {
       if(err) {
