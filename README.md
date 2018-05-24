@@ -7,8 +7,8 @@
 |--------------------|-------|------------------------------------|
 |`/api/users/`       | GET   | Get a all data                     |
 |`/api/users/:id`    | GET   | Get a user by Id                   |
-|`/api/users/post`   | POST  | User Sign Up                       |
-|`/api/users/post`   | POST  | User Sign In                       |
+|`/api/users/signup` | POST  | User Sign Up                       |
+|`/api/users/signin` | POST  | User Sign In                       |
 
 ### List of ulasan routes:
 |Route                   |HTTP   |Description                     |

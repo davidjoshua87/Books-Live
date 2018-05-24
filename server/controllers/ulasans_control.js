@@ -37,13 +37,10 @@ module.exports = {
   },
 
   createUlasan: function (req, res) {
-    let content = req.body.content,
-      author = req.body.author,
-      like = [];
     Ulasan.create({
-      content: content,
-      author: author,
-      like: like
+      content: req.body.content,
+      author: req.body.author,
+      like: []
     }, (err, result) => {
       if(err) {
         res.status(400)

@@ -37,8 +37,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //router set..
-app.use('/api/user', user);
-app.use('/api/book', book);
+app.use('/api/users', user);
+app.use('/api/books', book);
 app.use('/api/ulasan', ulasan);
 
 // catch 404 and forward to error handler

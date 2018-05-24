@@ -37,17 +37,15 @@ module.exports = {
   },
 
   createBook: (req, res) =>{
-    console.log(req.body, '=======');
-    console.log(req.file, '=====');
     Book.create({
       title: req.body.title,
       penerbit: req.body.penerbit,
+      author: req.body.author,
       imageUrl: req.file.cloudStoragePublicUrl,
       ulasans: [],
       like: [],
       unlike: []
     }, (err, result) => {
-      console.log(result, '======');
       if(err) {
         res.status(400)
           .send({

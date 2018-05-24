@@ -2,11 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const booksSchema = new Schema({
   title: String,
-  penerbit: String,
-  author: {
+  description: String,
+  penerbit: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  author: String,
   imageUrl: String,
   ulasans: [{
     type: Schema.Types.ObjectId,
